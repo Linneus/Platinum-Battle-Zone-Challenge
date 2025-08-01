@@ -1,0 +1,229 @@
+﻿# Q. What is this file?
+# A. This file contains options which allow you to configure your multiworld experience while allowing
+#    others to play how they want as well.
+#
+# Q. How do I use it?
+# A. The options in this file are weighted. This means the higher number you assign to a value, the
+#    more chances you have for that option to be chosen. For example, an option like this:
+#
+#    map_shuffle:
+#      on: 5
+#      off: 15
+#
+#    Means you have 5 chances for map shuffle to occur, and 15 chances for map shuffle to be turned
+#    off.
+#
+# Q. I've never seen a file like this before. What characters am I allowed to use?
+# A. This is a .yaml file. You are allowed to use most characters.
+#    To test if your yaml is valid or not, you can use this website:
+#        http://www.yamllint.com/
+#    You can also verify that your Archipelago options are valid at this site:
+#        https://archipelago.gg/check
+
+# Your name in-game, limited to 16 characters.
+#     {player} will be replaced with the player's slot number.
+#     {PLAYER} will be replaced with the player's slot number, if that slot number is greater than 1.
+#     {number} will be replaced with the counter value of the name.
+#     {NUMBER} will be replaced with the counter value of the name, if the counter value is greater than 1.
+name: Player{number}
+
+# Used to describe your yaml. Useful if you have multiple files.
+description: Default Manual_PokemonPlatinum_Linneus Template
+
+game: Manual_PokemonPlatinum_Linneus
+requires:
+  version: 0.6.2 # Version of Archipelago required for this yaml to work as expected.
+
+Manual_PokemonPlatinum_Linneus:
+  # Game Options
+  progression_balancing:
+    # A system that can move progression earlier, to try and prevent the player from getting stuck and bored early.
+    # 
+    # A lower setting means more getting stuck. A higher setting means less getting stuck.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 99
+    random: 0
+    random-low: 0
+    random-high: 0
+    disabled: 0 # equivalent to 0
+    normal: 50 # equivalent to 50
+    extreme: 0 # equivalent to 99
+
+  accessibility:
+    # Set rules for reachability of your items/locations.
+    # 
+    # **Full:** ensure everything can be reached and acquired.
+    # 
+    # **Minimal:** ensure what is needed to reach your goal can be acquired.
+    full: 50
+    minimal: 0
+
+  plando_items:
+    # Generic items plando.
+    []
+
+  goal:
+    # Choose your victory condition:
+    # Become Champion - The classic goal. Enter the hall of fame after collecting all eight badges and defeating the League.
+    # Defeat Arceus - Plate Hunt! Collect all 16 Plates to enter the Hall of Origin above Spear Pillar and defeat Arceus.
+    pokemon league - become champion: 50
+    hall of origin - defeat arceus: 0
+
+  filler_traps:
+    # How many fillers will be replaced with traps. 0 means no additional traps, 100 means all fillers are traps.
+    #
+    # You can define additional values between the minimum and maximum values.
+    # Minimum value is 0
+    # Maximum value is 100
+    0: 50
+    random: 0
+    random-low: 0
+    random-high: 0
+
+  # Hidden Items
+  randomize_hidden_items:
+    # Shuffles hidden items into the pool.
+    'false': 0
+    'true': 50
+
+  require_dowsing_machine:
+    # Hidden items require the Dowsing Machine in logic.
+    # Note that this does NOT impact the Hidden Items on Route 217.
+    'false': 0
+    'true': 50
+
+  require_dowsing_machine_on_route_217:
+    # Hidden items on Route 217 require the Dowsing Machine in logic.
+    # This is separate from all other hidden items. Given the size of the route and its poor visibility,
+    # it is suggested you leave this on, even if other Hidden Items will not require Dowsing Machine.
+    'false': 0
+    'true': 50
+
+  # Defog
+  defog_traversal:
+    # Entering foggy areas logically requires Defog.
+    'false': 0
+    'true': 50
+
+  defog_pickup:
+    # Items in foggy areas logically require Defog to pick up.
+    # If Defog Traversal is on, this option does nothing.
+    'false': 0
+    'true': 50
+
+  # Fly Access
+  early_fly:
+    # Guarantees that Fly and the Cobble Badge will be acquired within an early sphere.
+    # Twinleaf, Sandgem, Pal Park, Jubilife, Oreburgh, and Floaroma will be the only regions logic will expect you to
+    # travel without the ability to Fly.
+    #  
+    # In a multiworld, 'HM02 Fly' and 'Cobble Badge' can be added to the local_items option for added insurance.
+    'false': 50
+    'true': 0
+
+  northern_sinnoh_fly:
+    # The game logically expects you to have access to Fly
+    # before entering Northern Sinnoh.
+    #  
+    # If Early Fly is on, this option will have no impact.
+    'false': 50
+    'true': 0
+
+  # Extra Items and Roadblocks
+  storage_key:
+    # Adds the Storage Key from Diamond & Pearl into the multiworld.
+    # This allows access to the Galactic Warehouse without the need to clear the three lakes.
+    #  
+    # Note that clearing the lakes still opens the Warehouse, and logic accounts for both of these.
+    'false': 50
+    'true': 0
+
+  veilstone_flash:
+    # Buying Flash from Veilstone Dept. Store will be considered in logic with this option.
+    'false': 50
+    'true': 0
+
+  open_sunyshore:
+    # Removes the roadblock at Hotel Grand Lake preventing access to Route 222.
+    # This removes the requirement of defeating Cyrus in the Distortion World to access this area.
+    'false': 50
+    'true': 0
+
+  extra_roadblocks:
+    # Adds roadblocks to Routes 214 (directly south of Veilstone) and 212 (directly south of Hearthome).
+    # These routes cannot be traversed without Surf, which prevents access to Pastoria and the surrounding area.
+    #  
+    # This aims to take away some of the Bike's power as an access tool.
+    'false': 50
+    'true': 0
+
+  marsh_pass:
+    # Adds the Marsh Pass item, which gates access to the Great Marsh
+    # in Pastoria City.
+    #  
+    # If this option is disabled, the Great Marsh will have no requirements
+    # and function just as it does in vanilla.
+    'false': 50
+    'true': 0
+
+  # Battle Zone
+  battle_zone:
+    # Adds the Battle Zone (the Fight Area, Survival Area, Resort Area, Stark Mountain, and all Routes in between) to the list of locations.
+    # Namely, this includes all checks that require defeating Flint and Volkner at the Fight Area to access.
+    'false': 0
+    'true': 50
+
+  # Berry Hunting
+  berry_tree_shuffle:
+    # Adds all 118 Berry Trees as locations.
+    'false': 50
+    'true': 0
+
+  pick_a_peck_accessories:
+    # The 22 Accessories in Floaroma's Pick A Peck of Colors Flower Shop will be added as locations.
+    #  
+    # This adds all of the berries necessary to buy these accessories as items to the pool.
+    # Accessories will either cost 1 Berry, or 1/10th of the Berries needed in the base game.
+    'false': 50
+    'true': 0
+
+  # Item & Location Options
+  local_items:
+    # Forces these items to be in their native world.
+    []
+
+  non_local_items:
+    # Forces these items to be outside their native world.
+    []
+
+  start_inventory:
+    # Start with these items.
+    {}
+
+  start_inventory_from_pool:
+    # Start with these items and don't place them in the world.
+    # 
+    # The game decides what the replacement items will be.
+    {}
+
+  start_hints:
+    # Start with these item's locations prefilled into the ``!hint`` command.
+    []
+
+  start_location_hints:
+    # Start with these locations and their item prefilled into the ``!hint`` command.
+    []
+
+  exclude_locations:
+    # Prevent these locations from having an important item.
+    []
+
+  priority_locations:
+    # Prevent these locations from having an unimportant item.
+    []
+
+  item_links:
+    # Share part of your item pool with other players.
+    []
