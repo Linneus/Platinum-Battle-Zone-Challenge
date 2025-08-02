@@ -28,7 +28,7 @@ Next, a modified version of [Universal Pokémon Randomizer ZX](https://github.co
 
 Given that you just opened a modified ROM, you can expect to see the red text and the “Unofficial ROM” support.
 
-Importantly, this is where the Battle Zone Challenge differs quite a bit from the original Platinum AP Manual.
+**Importantly, this is where the Battle Zone Challenge differs quite a bit from the original Platinum AP Manual.**
 There are certain randomization options that the hack is designed around for the sake of the playthrough and its difficulty, and thus a random settings file, named `battlezone_archi_Setings.rnqs` is included with the download. Load it with the "Load Settings" button.
 Many settings in this file are a recommendation/baseline.
 Those required/absolutely expected settings are:
